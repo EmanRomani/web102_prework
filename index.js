@@ -32,7 +32,7 @@ function addGamesToPage(games) {
         for (let game of games) {
 
         // create a new div element, which will become the game card
-            let gamecard = document.createElement('div');
+            let gamecard = document.createElement("div");
 
         // add the class game-card to the list
             gamecard.classList.add("game-card");
@@ -179,12 +179,14 @@ let numUfundedList = GAMES_JSON.reduce((acc, game) => {
 console.log(numUfundedList)
 
 // create a string that explains the number of unfunded games using the ternary operator
-let expln = `
-
-`;
+let expln = `We have raised $800,268 for our ${GAMES_JSON.length} games. Currently, ${numUfundedList}
+ ${numUfundedList <= 1 ? "game remains": "games remain"} unfunded. We need your help.`
 
 
 // create a new DOM element containing the template string and append it to the description container
+let dscrption = document.createElement("p")
+dscrption.innerHTML = `<p>${expln}</p>`
+descriptionContainer.appendChild(dscrption)
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
