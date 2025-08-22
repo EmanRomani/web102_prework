@@ -35,7 +35,7 @@ function addGamesToPage(games) {
             let gamecard = document.createElement('div');
 
         // add the class game-card to the list
-            gamecard.classList.add("game-card")
+            gamecard.classList.add("game-card");
 
 
         // set the inner HTML using a template literal to display some info
@@ -44,21 +44,20 @@ function addGamesToPage(games) {
                 <img src="${game.img}" class="game-img">
                 <p>Title: ${game.name}</p>
                 <p>Overview: ${game.description}</p>
-            `
+            `;
         
         // TIP: if your images are not displaying, make sure there is space
         // between the end of the src attribute and the end of the tag ("/>")
 
 
         // append the game to the games-container
-            document.gamesContainer.appendChild(gamecard)
+            gamesContainer.append(gamecard);
 
         }        
 }
 
 // call the function we just defined using the correct variable
 // later, we'll call this function using a different list of games
-
 addGamesToPage(GAMES_JSON)
 
 /*************************************************************************************
