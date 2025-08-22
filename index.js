@@ -176,7 +176,7 @@ const descriptionContainer = document.getElementById("description-container");
 let numUfundedList = GAMES_JSON.reduce((acc, game) => {
             return acc + (game.pledged > game.goal ?  0 : 1);
 }, 0)
-console.log(numUfundedList)
+//console.log(numUfundedList)
 
 // create a string that explains the number of unfunded games using the ternary operator
 let expln = `We have raised $800,268 for our ${GAMES_JSON.length} games. Currently, ${numUfundedList}
@@ -199,9 +199,20 @@ const secondGameContainer = document.getElementById("second-game");
 const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
     return item2.pledged - item1.pledged;
 });
+//console.log(sortedGames)
 
 // use destructuring and the spread operator to grab the first and second games
+let [first, second, ...others ] = sortedGames;
+//console.log(first)
+//console.log(second)
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+let firstGame = document.createElement("p");
+firstGame.innerHTML = `<p>${first.name}</p>`
+//console.log(firstGame)
+firstGameContainer.appendChild(firstGame)
 
 // do the same for the runner up item
+let secondGame = document.createElement("p");
+secondGame.innerHTML = `<p>${second.name}</p>`;
+secondGameContainer.appendChild(secondGame)
