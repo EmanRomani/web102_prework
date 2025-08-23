@@ -249,8 +249,5 @@ let secondGame = document.createElement("p");
 secondGame.innerHTML = `<p>${second.name}</p>`;
 secondGameContainer.appendChild(secondGame)
 
-/************************************************************************************
- * Optional: Creating a modal for when the game car is clicked
- * Skills used: spread operator, destructuring, template literals, sort 
- */
 
+ 
