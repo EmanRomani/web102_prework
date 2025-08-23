@@ -4,7 +4,7 @@ Submitted by: Emanuel Tossou
 
 Sea Monster Crowdfunding is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
-Time spent: 10 hours spent in total
+Time spent: 11 hours spent in total
 
 ## Required Features
 
@@ -35,7 +35,8 @@ GIF created with ...
 ## Notes
 
 Describe any challenges encountered while building the app.
-Making sure the app is working properly with functions and whatnot,
+DOM manipulation and making sure objects actuallly exist before I add event listeners and other things.
+Getting the modal to appear and making sure the event listeners were properly linked to their DOM objects in general.
 
 ## License
 
