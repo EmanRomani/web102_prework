@@ -32,14 +32,18 @@ function addGamesToPage(games) {
         for (let game of games) {
 
         // create a new div element, which will become the game card
-            let gamecard = document.createElement("div");
+            //Button for game card modal
+            let gameButton = document.createElement("button");
+            let gameCard = document.createElement("div");
+            
 
         // add the class game-card to the list
-            gamecard.classList.add("game-card");
+            //Gave Button the class of the game card so it still looks the same
+            gameButton.classList.add("game-card");
 
         // set the inner HTML using a template literal to display some info
         // about each game 
-            gamecard.innerHTML = `
+            gameCard.innerHTML = `
                 <img src="${game.img}" class="game-img">
                 <p>Title: ${game.name}</p>
                 <p>Overview: ${game.description}</p>
@@ -49,14 +53,42 @@ function addGamesToPage(games) {
         // between the end of the src attribute and the end of the tag ("/>")
 
         // append the game to the games-container
-            gamesContainer.append(gamecard);
+            gameButton.addEventListener("click", () => {
+                let gameModal = document.getElementById("gamecard-modal")
+                let modalInfo = document.getElementById("gamecard-info")
+                
+                console.log(game.name)
+                
+                modalInfo.innerHTML = `
+                <button id="close">&times;</button>
+                <img src="${game.img}" id="modal-img">
+                <p>Title: ${game.name}</p>
+                <p>Overview: ${game.description}</p>
+                <p>Number of Contributors: ${game.backers}</p>
+                <p>Total Raised: $${game.pledged}</p>
+                <p>Goal: $${game.goal}</p>
+            `;
+                gameModal.classList.add("active");
+                
+                let modalClose = document.getElementById("close")
+                modalClose.addEventListener("click", () => {
+                    gameModal.classList.remove("active");
+                });
 
-        }        
+            });
+            gameButton.append(gameCard);
+            //appends gameButton to games-container
+            gamesContainer.append(gameButton);
+            //console.log(gameButton)
+            
+        } 
+        
 }
 
 // call the function we just defined using the correct variable
 // later, we'll call this function using a different list of games
 addGamesToPage(GAMES_JSON)
+
 
 /*************************************************************************************
  * Challenge 4: Create the summary statistics at the top of the page displaying the
@@ -216,3 +248,9 @@ firstGameContainer.appendChild(firstGame)
 let secondGame = document.createElement("p");
 secondGame.innerHTML = `<p>${second.name}</p>`;
 secondGameContainer.appendChild(secondGame)
+
+/************************************************************************************
+ * Optional: Creating a modal for when the game car is clicked
+ * Skills used: spread operator, destructuring, template literals, sort 
+ */
+
